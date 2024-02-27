@@ -1,0 +1,143 @@
+curl -X POST http://127.0.0.1:8000/api/sensors/ \
+-H "Content-Type: application/json" \
+-d '{
+    "edge_computer": 1,
+    "sensor_type": "Solar Radiation",
+    "model_number": "SR123",
+    "specifications": "W/m2"
+}'
+
+curl -X POST http://127.0.0.1:8000/api/sensors/ \
+-H "Content-Type: application/json" \
+-d '{
+    "edge_computer": 1,
+    "sensor_type": "Precipitation",
+    "model_number": "P123",
+    "specifications": "mm"
+}'
+
+curl -X POST http://127.0.0.1:8000/api/sensors/ \
+-H "Content-Type: application/json" \
+-d '{
+    "edge_computer": 1,
+    "sensor_type": "Strikes",
+    "model_number": "S123",
+    "specifications": ""
+}'
+
+curl -X POST http://127.0.0.1:8000/api/sensors/ \
+-H "Content-Type: application/json" \
+-d '{
+    "edge_computer": 1,
+    "sensor_type": "Strike Distance",
+    "model_number": "KM123",
+    "specifications": "km"
+}'
+
+curl -X POST http://127.0.0.1:8000/api/sensors/ \
+-H "Content-Type: application/json" \
+-d '{
+    "edge_computer": 1,
+    "sensor_type": "Wind Speed",
+    "model_number": "WS456",
+    "specifications": "m/s"
+}'
+
+curl -X POST http://127.0.0.1:8000/api/sensors/ \
+-H "Content-Type: application/json" \
+-d '{
+    "edge_computer": 1,
+    "sensor_type": "Wind Direction",
+    "model_number": "WD789",
+    "specifications": "°"
+}'
+
+curl -X POST http://127.0.0.1:8000/api/sensors/ \
+-H "Content-Type: application/json" \
+-d '{
+    "edge_computer": 1,
+    "sensor_type": "Gust Wind Speed",
+    "model_number": "GWS101",
+    "specifications": "m/s"
+}'
+
+curl -X POST http://127.0.0.1:8000/api/sensors/ \
+-H "Content-Type: application/json" \
+-d '{
+    "edge_computer": 1,
+    "sensor_type": "Air Temperature",
+    "model_number": "AT202",
+    "specifications": "°C"
+}'
+
+curl -X POST http://127.0.0.1:8000/api/sensors/ \
+-H "Content-Type: application/json" \
+-d '{
+    "edge_computer": 1,
+    "sensor_type": "Vapor Pressure",
+    "model_number": "VP303",
+    "specifications": "kPa"
+}'
+
+curl -X POST http://127.0.0.1:8000/api/sensors/ \
+-H "Content-Type: application/json" \
+-d '{
+    "edge_computer": 1,
+    "sensor_type": "Atmospheric Pressure",
+    "model_number": "AP404",
+    "specifications": "kPa"
+}'
+
+curl -X POST http://127.0.0.1:8000/api/sensors/ \
+-H "Content-Type: application/json" \
+-d '{
+    "edge_computer": 1,
+    "sensor_type": "Relative Humidity",
+    "model_number": "RH505",
+    "specifications": ""
+}'
+
+curl -X POST http://127.0.0.1:8000/api/sensors/ \
+-H "Content-Type: application/json" \
+-d '{
+    "edge_computer": 1,
+    "sensor_type": "Humidity Sensor Temperature",
+    "model_number": "HST606",
+    "specifications": "°C"
+}'
+
+curl -X POST http://127.0.0.1:8000/api/sensors/ \
+-H "Content-Type: application/json" \
+-d '{
+    "edge_computer": 1,
+    "sensor_type": "X Orientation",
+    "model_number": "XO707",
+    "specifications": "°"
+}'
+
+curl -X POST http://127.0.0.1:8000/api/sensors/ \
+-H "Content-Type: application/json" \
+-d '{
+    "edge_computer": 1,
+    "sensor_type": "Y Orientation",
+    "model_number": "YO808",
+    "specifications": "°"
+}'
+
+curl -X POST http://127.0.0.1:8000/api/sensors/ \
+-H "Content-Type: application/json" \
+-d '{
+    "edge_computer": 1,
+    "sensor_type": "North Wind Speed",
+    "model_number": "NWS1010",
+    "specifications": "m/s"
+}'
+
+curl -X POST http://127.0.0.1:8000/api/sensors/ \
+-H "Content-Type: application/json" \
+-d '{
+    "edge_computer": 1,
+    "sensor_type": "East Wind Speed",
+    "model_number": "EWS1111",
+    "specifications": "m/s"
+}'

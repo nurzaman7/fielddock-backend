@@ -1,0 +1,32 @@
+<!-- dashboard.html -->
+
+{% extends 'base_site.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block dashboard %}
+  <h2> <a href="">FieldDock Manager</a></h2>
+  
+  <ul>
+    {% for field_component in field_components %}
+      <li>{{ field_component.name }}</li>
+    {% endfor %}
+  </ul>
+  <!-- Example Add Button -->
+  <a href="{% url 'add_fieldcomponent' %}" class="btn btn-primary">Add FieldDock</a>
+
+
+  <h2> <a href="">User Manager</a></h2>
+  <!-- Display existing superusers -->
+  <ul>
+    {% for user in superusers %}
+      <li>{{ user.username }}</li>
+    {% endfor %}
+  </ul>
+
+  <!-- Example Add Button -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addFormModal">
+    Add User
+  </button>
+{% endblock %}
+
