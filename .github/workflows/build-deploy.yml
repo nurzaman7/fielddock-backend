@@ -39,7 +39,7 @@ jobs:
       - name: Build & push Docker image
         uses: mr-smithers-excellent/docker-build-push@v6
         env:
-          DJANGO_SETTINGS_MODULE: rhizotron.settings.prod
+          DJANGO_SETTINGS_MODULE: backend.settings.prod
         with:
           image: c4thebomb/fielddock-backend
           registry: docker.io

@@ -11,9 +11,9 @@ services:
     volumes:
       - ./:/app
     networks:
-      - rhizotron
+      - fielddock
     environment:
-      DJANGO_SETTINGS_MODULE: "rhizotron.settings.docker"
+      DJANGO_SETTINGS_MODULE: "fielddock.settings.docker"
     depends_on:
       mysqldb:
         condition: service_healthy
@@ -25,9 +25,9 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - rhizotron-mysql:/var/lib/mysql
+      - fielddock-mysql:/var/lib/mysql
     networks:
-      - rhizotron
+      - fielddock
     environment:
       MYSQL_ROOT_PASSWORD: "passw0rd"
       MYSQL_DATABASE: dev
@@ -37,7 +37,7 @@ services:
       retries: 10
 
 volumes:
-  rhizotron-mysql:
+  fielddock-mysql:
 
 networks:
-  rhizotron: {}
+  fielddock: {}

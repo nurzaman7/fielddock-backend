@@ -15,7 +15,7 @@ services:
     ports:
       - 127.0.0.1:8000:8000
     networks:
-      - rhizotron
+      - fielddock
     external_links:
       - mysqldb
   mysqldb:
@@ -26,7 +26,7 @@ services:
     volumes:
       - mysql:/var/lib/mysql
     networks:
-      - rhizotron
+      - fielddock
     environment:
       MYSQL_ROOT_PASSWORD: "passw0rd"
       MYSQL_DATABASE: dev
@@ -36,4 +36,4 @@ services:
       retries: 10
 
 networks:
-  rhizotron: {}
+  fielddock: {}
