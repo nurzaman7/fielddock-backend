@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  app:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - 8000:8000
+    volumes:
+      - ./:/app
+    networks:
+      - rhizotron
+    environment:
+      DJANGO_SETTINGS_MODULE: "rhizotron.settings.docker"
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+    command: >
+      bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+  mysqldb:
+    restart: unless-stopped
+    image: mysql:8.3
+    ports:
+      - 3306:3306
+    volumes:
+      - rhizotron-mysql:/var/lib/mysql
+    networks:
+      - rhizotron
+    environment:
+      MYSQL_ROOT_PASSWORD: "passw0rd"
+      MYSQL_DATABASE: dev
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 5s
+      retries: 10
+
+volumes:
+  rhizotron-mysql:
+
+networks:
+  rhizotron: {}

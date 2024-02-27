@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  app:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+      platforms:
+        - linux/amd64
+    image: c4thebomb/fielddock-backend:${TAG:-latest}
+    env_file:
+      - path: .env
+        required: true
+    ports:
+      - 127.0.0.1:8000:8000
+    networks:
+      - rhizotron
+    external_links:
+      - mysqldb
+  mysqldb:
+    restart: unless-stopped
+    image: mysql:8.3
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql:/var/lib/mysql
+    networks:
+      - rhizotron
+    environment:
+      MYSQL_ROOT_PASSWORD: "passw0rd"
+      MYSQL_DATABASE: dev
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 5s
+      retries: 10
+
+networks:
+  rhizotron: {}
