@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 GDAL_LIBRARY_PATH = '/usr/lib/libgdal.so'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'imageout_images')
