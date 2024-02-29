@@ -34,7 +34,9 @@ services:
       - default
     environment:
       MYSQL_ROOT_PASSWORD: "passw0rd"
-      MYSQL_DATABASE: dev
+      MYSQL_DATABASE: "fielddock"
+      MYSQL_USER: "fielddock"
+      MYSQL_PASSWORD: "passw0rd"
     healthcheck:
       test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
       timeout: 5s
