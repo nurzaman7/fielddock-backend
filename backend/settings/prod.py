@@ -7,12 +7,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '18.190.158.132',
+    '3.15.191.116',
     '127.0.0.1'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://18.190.158.132'
+    'http://3.15.191.116'
 ]
 
 DATABASES = {
