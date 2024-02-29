@@ -54,5 +54,6 @@ services:
 
 volumes:
   mysql:
+  media:
 networks:
   fielddock: {}
