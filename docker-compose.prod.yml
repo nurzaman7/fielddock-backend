@@ -14,10 +14,15 @@ services:
         required: true
     ports:
       - 127.0.0.1:8000:8000
+    volumes:
+      - media:/app/image-out
     networks:
       - fielddock
-    external_links:
-      - mysqldb
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+      mqtt:
+        condition: service_healthy
   mysqldb:
     restart: unless-stopped
     image: mysql:8.3
@@ -32,6 +37,18 @@ services:
       MYSQL_DATABASE: dev
     healthcheck:
       test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 5s
+      retries: 10
+  mqtt:
+    restart: unless-stopped
+    image: eclipse-mosquitto:2.0
+    ports:
+      - 1883:1883
+      - 9001:9001
+    networks:
+      - fielddock
+    healthcheck:
+      test: [ "CMD", "mosquitto_pub", "-h", "localhost", "-t", "test", "-m", "test" ]
       timeout: 5s
       retries: 10
 
