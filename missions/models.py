@@ -149,7 +149,7 @@ class CloudStateMachineStatus(models.Model):
         return f'Cloud SM Status for Mission {self.mission.pk} - {self.status}'
 
 class DroneStatus(models.Model):
-    mission = models.ForeignKey(Mission, on_delete=models.CASCADE, related_name='drone_statuses')
+    mission = models.ForeignKey(Mission, on_delete=models.CASCADE, related_name='drone_status')
     timestamp = models.DateTimeField(default=datetime.now)
     latitude = models.FloatField()
     longitude = models.FloatField()
