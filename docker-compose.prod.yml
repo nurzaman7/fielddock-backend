@@ -46,7 +46,7 @@ services:
       - 1883:1883
       - 9001:9001
     volumes:
-      - mosquitto-config:/mosquitto/config:rw
+      - mosquitto.conf:/mosquitto/config/mosquitto.conf
       - mosquitto-data:/mosquitto/data:rw
       - mosquitto-log:/mosquitto/log:rw
     networks:
@@ -59,7 +59,6 @@ services:
 volumes:
   mysql:
   media:
-  mosquitto-config:
   mosquitto-data:
   mosquitto-log:
 networks:
