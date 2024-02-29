@@ -11,9 +11,9 @@ services:
     volumes:
       - ./:/app
     networks:
-      - fielddock
+      - default
     environment:
-      DJANGO_SETTINGS_MODULE: "fielddock.settings.docker"
+      DJANGO_SETTINGS_MODULE: "backend.settings.docker"
     depends_on:
       mysqldb:
         condition: service_healthy
@@ -27,9 +27,9 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - fielddock-mysql:/var/lib/mysql
+      - mysql:/var/lib/mysql
     networks:
-      - fielddock
+      - default
     environment:
       MYSQL_ROOT_PASSWORD: "passw0rd"
       MYSQL_DATABASE: dev
@@ -44,14 +44,14 @@ services:
       - 1883:1883
       - 9001:9001
     networks:
-      - fielddock
+      - default
     healthcheck:
       test: [ "CMD", "mosquitto_pub", "-h", "localhost", "-t", "test", "-m", "test" ]
       timeout: 5s
       retries: 10
 
 volumes:
-  fielddock-mysql:
+  mysql:
 
 networks:
-  fielddock: {}
+  default: {}
