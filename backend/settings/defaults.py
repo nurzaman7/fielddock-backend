@@ -17,10 +17,10 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'drf_spectacular',
+    'drf_spectacular_sidecar',
     'corsheaders',
 
     'admin_site',
-    'admin_login',
     'missions',
     'devices',
     'services',
